@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://14-prasanna.github.io/Mini-Audit-Trail-Generator-front-end/",
+    origin: "https://14-prasanna.github.io/Mini-Audit-Trail-Generator-front-end",
     credentials: true,
   })
 );
