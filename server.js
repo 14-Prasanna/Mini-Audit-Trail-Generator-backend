@@ -53,7 +53,7 @@ const taskSchema = new mongoose.Schema({
 const Task = mongoose.model("Task", taskSchema);
 
 // CREATE NEW VERSION (with diff & summary)
-app.post("/task/:taskId/version", async (req, res) => {
+app.post("/api/task/:taskId/version", async (req, res) => {
   const taskId = req.params.taskId;
   const newData = req.body; // { title: "...", content: "..." }
 
@@ -147,7 +147,7 @@ app.post("/task/:taskId/version", async (req, res) => {
 });
 
 // GET all tasks (for dropdown)
-app.get("/tasks", async (req, res) => {
+app.get("/api/tasks", async (req, res) => {
   try {
     const tasks = await Task.find({})
       .select("taskId tailVersion versions.versionNumber versions.data")
@@ -168,7 +168,7 @@ app.get("/tasks", async (req, res) => {
 });
 
 // GET full task with all versions
-app.get("/task/:taskId", async (req, res) => {
+app.get("/api/task/:taskId", async (req, res) => {
   try {
     const task = await Task.findOne({ taskId: req.params.taskId });
     if (!task) return res.json({ message: "Task not found", versions: [] });
@@ -186,7 +186,7 @@ app.get("/task/:taskId", async (req, res) => {
 });
 
 // GET single version
-app.get("/task/:taskId/version/:versionNumber", async (req, res) => {
+app.get("/api/task/:taskId/version/:versionNumber", async (req, res) => {
   try {
     const task = await Task.findOne({ taskId: req.params.taskId });
     if (!task) return res.status(404).json({ message: "Task not found" });
