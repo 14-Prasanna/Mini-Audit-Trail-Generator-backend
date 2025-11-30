@@ -1,0 +1,21 @@
+{
+  "name": "versioning-mock-service",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "diff": "^8.0.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "nodemon": "^3.1.11"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  }
+}
