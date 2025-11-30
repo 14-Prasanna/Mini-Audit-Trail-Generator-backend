@@ -8,12 +8,19 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+// In your Express backend (replace the current cors() block)
 app.use(
   cors({
-    origin: "https://14-prasanna.github.io/Mini-Audit-Trail-Generator-front-end",
+    origin: [
+      "https://14-prasanna.github.io",
+      "https://14-prasanna.github.io/Mini-Audit-Trail-Generator-front-end",
+      "http://localhost:3000",
+      "http://localhost:5173",
+    ],
     credentials: true,
   })
 );
+
 
 // Connect to MongoDB
 mongoose
